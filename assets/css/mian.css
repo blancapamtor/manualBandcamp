@@ -1,0 +1,70 @@
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: transparent;
+  box-sizing: border-box;
+  gap: 40px;
+}
+header .logoSmall img {
+  width: 40px;
+  height: auto;
+  display: block;
+}
+header nav {
+  display: flex;
+  gap: 20px;
+}
+header nav a {
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  text-decoration: none;
+  color: #000;
+  padding: 8px 14px;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+header nav a.nav-activo {
+  font-weight: 600;
+  color: #e93a4e;
+}
+header nav a:hover {
+  background-color: #e93a4e;
+  color: #fff;
+}
+header .lang {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 50px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+header .lang .lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: #000;
+  padding: 2px 4px;
+  transition: all 0.2s ease;
+}
+header .lang .lang-btn:hover {
+  color: #e93a4e;
+}
+header .lang .lang-btn.activo {
+  color: #e93a4e;
+  font-weight: bold;
+}/*# sourceMappingURL=mian.css.map */

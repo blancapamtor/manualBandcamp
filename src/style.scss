@@ -1,0 +1,39 @@
+// --- COLORES PRINCIPALES ---
+$bc-azul:       #2563EB;
+$bc-negro:      #000000;
+$bc-blanco:     #FAFAFA;
+
+// --- DERIVACIONES AZUL BANDCAMP ---
+$bc-azul-claro:  #EFF0FF;
+$bc-azul-medio:  #88A3FF;
+$bc-azul-oscuro: #003D9A;
+
+// --- ESTILOS TEXTO ---
+
+@mixin h1-estilo {
+  font-family: 'Inter', sans-serif;
+  font-size: 8rem;      // 128px
+  font-weight: 700;     // Bold
+  line-height: 1.1;     // 110%
+}
+
+@mixin h2-estilo {
+  font-family: 'Inter', sans-serif;
+  font-size: 4rem;      // 64px
+  font-weight: 700;     // Bold
+  line-height: 1.12;    // 112%
+}
+
+@mixin cuerpo-estilo {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;   // 20px
+  font-weight: 400;     // Regular
+  line-height: 1.4;     // 140%
+}
+
+@mixin pie-estilo {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;   // 12px
+  font-weight: 400;     // Regular
+  line-height: 1.33;    // 133%
+}

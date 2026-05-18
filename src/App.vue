@@ -87,7 +87,7 @@ const coloresBandcamp = [
     text="Paleta de colores principal de Bandcamp."
     isMainTitle
     :colores="coloresBandcamp"
-    imagen="src/assets/colores_uso.png"
+    imagen="src/assets/Color1.png"
     />
   </main>
 </template>

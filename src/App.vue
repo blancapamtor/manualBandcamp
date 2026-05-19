@@ -10,10 +10,10 @@ const coloresBandcamp = [
 
 <template>
   <main>
-    <header class="hero">
+    <section class="hero">
       <h1>Guía de estilos</h1>
       <p>Desliza y descubre</p>
-    </header>
+    </section>
 
     <ManualSection 
       titulo="Identificadores" 
@@ -21,65 +21,72 @@ const coloresBandcamp = [
       imagenes="src/assets/identif1.png"
       :showButton="true" 
       isMainTitle
+      :showImage="true"
     />
 
     <ManualSection 
       titulo="Construcción" 
       text="Detalles sobre la rejilla y construcción del logo."
       imagenes="src/assets/identif2.png"
+      :showImage="true"
     />
 
     <ManualSection 
       titulo="Submarcas" 
       text="Uso de logotipos para departamentos secundarios."
       imagenes="src/assets/identif3.png"
+      :showImage="true"
     />
 
     <ManualSection 
       titulo="Área de respeto" 
       text="Area de respeto, texto bla bla."
       imagenes="src/assets/identif4.png"
+      :showImage="true"
     />
 
     <ManualSection 
       titulo="Identicadores según tamaño" 
       text="Identicadores según tamaño, texto bla bla."
       imagenes="src/assets/identif5.png"
+      :showImage="true"
     />
 
     <ManualSection 
       titulo="Identicadores según color" 
       text="Identicadores según color, texto bla bla."
       imagenes="src/assets/identif6.png"
+      :showImage="true"
     />
 
-
-
-    <ManualSection 
+      <ManualSection 
       titulo="Tipografía" 
       text="Nuestra tipografía principal es Inter, en nuestro sistema se incluyen 12 estilos que se adaptan a los diferentes niveles de contenido, asegurando coherencia y lectura fluida."
-      imagenes="" 
-
-      />
+      isMainTitle
+    />
     <ManualSection 
       titulo="Sistema" 
       imagenes="src/assets/tipo1.png"
+      :showImage="true"
 
     />
     <ManualSection 
       titulo="Uso de tipografías" 
       imagenes="src/assets/tipo2.png"
-
+:showImage="true"
     />
     <ManualSection
       titulo="Jerarquía según uso"
       imagenes="src/assets/tipo3.png"
+      :showImage="true"
     />
     <ManualSection
       imagenes="src/assets/tipo4.png"
+      :showImage="true"
     />
     <ManualSection
       imagenes="src/assets/tipo5.png"
+      :showImage="true"
     />
 
     <CardColores
@@ -92,15 +99,14 @@ const coloresBandcamp = [
   </main>
 </template>
 
-<style lang="scss"> // IMPORTANTE: Añade lang="scss"
-@import "./style.scss"; // Importamos tus mixins y colores
+<style lang="scss"> 
+@import "./style.scss"; 
 
-/* Estilos globales */
 body {
   background-color: $bc-negro;
   color: $bc-blanco;
   margin: 0;
-  // 20px arriba/abajo y 5% a los lados para que respire
+ 
   padding: 20px 5%;
 }
 
@@ -113,14 +119,14 @@ body {
   padding-bottom: 50px;
 
   h1 {
-    @include h1-estilo; // ¡Listo! Ya tiene los 8rem, el peso y el interlineado
+    @include h1-estilo; 
     margin-bottom: 0;
     color: $bc-blanco;
   }
   
   p {
-    @include cuerpo-estilo; // También para el "Desliza y descubre"
-    color: $bc-azul;        // O el color que prefieras
+    @include cuerpo-estilo; 
+    color: $bc-azul;     
   }
 }
 </style>

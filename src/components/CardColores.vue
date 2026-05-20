@@ -9,10 +9,11 @@
 
     <!-- Cards de color -->
     <div class="color-cards-grid">
-      <div
+      <div 
         v-for="color in colores"
         :key="color.hex"
         class="color-card"
+        :class="{ 'color-card--compact': props.compact }"
         :style="{ backgroundColor: `#${color.hex}` }"
         @click="copyHex(color.hex)"
       >
@@ -48,11 +49,12 @@
 <script setup>
 import { ref } from 'vue'
 
-defineProps({
+const props = defineProps({
   titulo:      { type: String,  default: '' },
   text:        { type: String,  default: '' },
   isMainTitle: { type: Boolean, default: false },
-  imagen:      { type: String,  default: '' },   // imagen opcional debajo de las cards
+  imagen:      { type: String,  default: '' },  
+  compact:     { type: Boolean, default: false },
   colores: {
     type: Array,
     default: () => [
@@ -65,13 +67,15 @@ defineProps({
 
 const copiedHex = ref(null)
 
+
 function infoRows(color) {
-  return [
+  const all = [
     { label: 'HEX',  value: color.hex  },
     { label: 'RGB',  value: color.rgb  },
     { label: 'HSL',  value: color.hsl  },
     { label: 'CMYK', value: color.cmyk },
   ]
+  return props.compact ? all.slice(0, 2) : all
 }
 
 function getLuminance(hex) {
@@ -105,7 +109,7 @@ async function copyHex(hex) {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "../style.scss";
 .color-section {
   padding: 40px 0;
@@ -149,6 +153,7 @@ async function copyHex(hex) {
 }
 
 /* Card */
+/* Card */
 .color-card {
   position: relative;
   width: 260px;
@@ -163,17 +168,39 @@ async function copyHex(hex) {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   flex-shrink: 0;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.32);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  &.color-card--compact {
+  min-height: 170px;
+  padding: 16px 20px 18px;
 }
 
-.color-card:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.32);
+:deep(.color-card--compact .card-info) {
+  padding-top: 20px;
+  gap: 6px;
 }
 
-.color-card:active {
-  transform: scale(0.97);
+:deep(.color-card--compact .info-row) {
+  padding-top: 6px;
 }
 
+:deep(.color-card--compact .label),
+:deep(.color-card--compact .value) {
+  font-size: 11px;
+}
+
+:deep(.color-card--compact .color-name) {
+  font-size: 13px;
+}
+}
 .card-header {
   flex: 1;
 }
@@ -252,4 +279,6 @@ font-family: 'Inter', sans-serif;
   border-radius: 12px;
   display: block;
 }
+
+
 </style>

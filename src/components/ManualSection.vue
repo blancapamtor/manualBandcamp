@@ -1,20 +1,17 @@
 <script setup>
-defineProps(['titulo', 'text', 'imagenes', 'showButton', 'isMainTitle', 'showImage'])
+defineProps(['titulo', 'text', 'imagenes', 'isMainTitle', 'showImage'])
 </script>
 
 <template>
   <section class="manual-section">
-   
 
     <h1 v-if="isMainTitle">{{ titulo }}</h1>
-    
+
     <h2 v-else>{{ titulo }}</h2>
 
     <p class="cuerpo-texto">{{ text }}</p>
-    
-    <button v-if="showButton" class="descargar-btn">
-      Descargar SVG
-    </button>
+
+    <slot />
     
     <div v-if="showImage" class="image-container">
       <img :src="imagenes" :alt="titulo" />
@@ -48,23 +45,7 @@ defineProps(['titulo', 'text', 'imagenes', 'showButton', 'isMainTitle', 'showIma
     max-width: 800px;
   }
 
-  .descargar-btn {
-    background-color: $bc-azul;
-    color: $bc-blanco;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 32px;
-    cursor: pointer;
-    font-weight: 400;
-    margin: 1rem 0;
-    transition: background 0.3s;
-
-    &:hover {
-      background-color: $bc-azul-oscuro;
-    }
-  }
-
-  .image-container {
+.image-container {
     margin-top: 2rem;
     img {
       max-width: 100%;

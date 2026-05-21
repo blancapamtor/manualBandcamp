@@ -1,6 +1,8 @@
 <script setup>
 import ManualSection from './components/ManualSection.vue'
-import CardColores from './components/CardColores.vue';
+import CardColores from './components/CardColores.vue'
+import BotonDescargar from './components/BotonDescargar.vue'
+import BotonPrototipo from './components/BotonPrototipo.vue'
 const coloresBandcamp = [
   { name: 'Azul Bandcamp', hex: '2563EB', rgb: '37 99 235', hsl: '221, 83, 53', cmyk: 'c84, 58, 0, 8' },
   { name: 'Negro',         hex: '000000', rgb: '0 0 0',     hsl: '0, 0, 0',     cmyk: '0, 0, 0, 100'  },
@@ -13,16 +15,20 @@ const coloresBandcamp = [
     <section class="hero">
       <h1>Guía de estilos</h1>
       <p>Desliza y descubre</p>
+      <BotonPrototipo
+        href="https://www.figma.com/proto/fxkAySOek8JCagCuoJGoNu/SistemaDise%C3%B1o_Bandcamp?node-id=1178-1039&t=OejKozrqSsXrbHDn-1"
+      />
     </section>
 
-    <ManualSection 
-      titulo="Identificadores" 
+    <ManualSection
+      titulo="Identificadores"
       text="Aquí explicamos los identificadores principales de Bandcamp."
       imagenes="src/assets/identif1.png"
-      :showButton="true" 
       isMainTitle
       :showImage="true"
-    />
+    >
+      <BotonDescargar texto="Descargar SVG" />
+    </ManualSection>
 
     <ManualSection 
       titulo="Construcción" 
@@ -221,8 +227,9 @@ body {
   }
   
   p {
-    @include cuerpo-estilo; 
-    color: $bc-azul;     
+    @include cuerpo-estilo;
+    color: $bc-azul;
   }
+
 }
 </style>
